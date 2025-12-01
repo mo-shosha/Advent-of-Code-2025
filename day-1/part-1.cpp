@@ -28,7 +28,6 @@ bool is_valid(vector<int>arr){
 }
 void solve() {
     // part-1
-    /*
     string x;
     int cnt{},start=50;
     while (cin>>x) {
@@ -42,35 +41,6 @@ void solve() {
             start=(start+num)%100;
         }
         if(start==0)cnt++;
-    }
-    cout<<cnt<<e;
-    */
-
-
-    // part-2
-    string x;
-    int cnt{},start=50;
-    while (cin>>x) {
-        char c=x[0];
-        int num = stoi(x.substr(1));
-        int t0{};
-        
-        if(c=='L'){
-            t0=start%100;
-            if(t0==0)t0=100;
-            start=(start-num)%100;
-            if(start<0){start+=100;}
-            
-        }
-        else if(c=='R'){
-            t0=(100-start%100)%100;
-            if(t0==0)t0=100;
-            start=(start+num)%100;
-            
-        }
-        if(num>=t0){
-            cnt+=1+(num-t0)/100;
-        }
     }
     cout<<cnt<<e;
 
