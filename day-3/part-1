@@ -1,0 +1,49 @@
+#include <algorithm>
+#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+#define ll long long
+#define e "\n"
+#define all(v) ((v).begin()), ((v).end())
+#define yes cout << "YES\n";
+#define no cout << "NO\n";
+#define nn(x) ((int)(x).size())
+
+int max_value_for_line(string x){
+    int n=nn(x);
+    if(n<2){
+        return 0;
+    }
+
+    int best_right=x[n-1]-'0'; 
+    ll best_val=0;
+    for(int i=n-2;i>=0;i--){
+        int d=x[i]-'0';
+        ll cand=10LL*d+best_right;
+        if(cand>best_val)best_val=cand;
+        if(d>best_right)best_right=d;
+    }
+    return best_val;
+
+}
+void solve() {
+    string x;
+    
+    int ans=0;
+    while(cin>>x){
+        ans+=max_value_for_line(x);
+    }
+    cout<<ans<<e;
+}
+ 
+int main() {
+    //freopen("masks.in", "r", stdin);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    int t=1;
+    //cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+} 
